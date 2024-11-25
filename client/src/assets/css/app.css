@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.subs-subscription-section {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+
+.subs-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.subs-card {
+    position: relative;
+    width: 300px;
+    background: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.subs-card::after,
+.subs-card::before {
+    content: '';
+    position: absolute;
+    height: 102%;
+    width: 103%;
+    background-image: conic-gradient(from var(--angle), 
+        rgba(30, 58, 138, 0.8), /* blue-900 */
+        rgba(88, 28, 135, 0.8), /* purple-900 */
+        rgba(185, 28, 28, 0.8), /* red-900 */
+        rgba(30, 58, 138, 0.8)  /* blue-900 */
+    );
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2px;
+    border-radius: 16px;
+    animation: 4s spin linear infinite;
+}
+
+.subs-card::before {
+    filter: blur(1.5rem);
+    opacity: 0.3;
+}
+
+.subs-card:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.subs-card-content {
+    background: rgba(17, 24, 39, 0.6);
+    padding: 30px;
+    border-radius: 16px;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+
+.subs-price {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #ffffff;
+}
+
+.subs-monthly {
+    font-size: 0.5em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.subs-title {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.subs-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    text-align: left;
+}
+
+.subs-features li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.subs-features li::before {
+    content: "✓";
+    color: #dc2626; /* red-600 to match book section */
+    font-weight: bold;
+}
+
+.subs-btn {
+    background: #dc2626; /* red-600 to match book section */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.2);
+}
+
+.subs-btn:hover {
+    transform: translateY(-2px);
+    background: #b91c1c; /* red-700 */
+    box-shadow: 0 6px 8px -1px rgba(220, 38, 38, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .subs-container {
+        padding: 10px;
+        gap: 20px;
+    }
+    .subs-card {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .subs-subscription-section {
+        padding: 20px;
+    }
+    .subs-container {
+        padding: 0;
+    }
+    .subs-card {
+        width: 100%;
+        max-width: 320px;
+    }
+}

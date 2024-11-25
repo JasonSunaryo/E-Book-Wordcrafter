@@ -1,0 +1,30 @@
+#signOutButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  #signOutButton button {
+    background-color: #ff4d4d; /* Bright red for emphasis */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #signOutButton button:hover {
+    background-color: #e63939; /* Slightly darker red on hover */
+    transform: scale(1.05); /* Enlarge the button slightly */
+  }
+  
+  #signOutButton button:active {
+    transform: scale(1); /* Return to original size on click */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
