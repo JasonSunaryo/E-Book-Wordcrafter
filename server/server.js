@@ -334,6 +334,19 @@ app.delete('/book_subscription/:id', (req, res) => {
   });
 })
 
+app.delete('/delete/:id', (req, res) => {
+  const id = req.params.id;
+  const sql = 'DELETE FROM book_details WHERE id = ?';
+  
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: 'Server error' });
+    }
+    return res.json({ success: 'Book deleted successfully' });
+  });
+});
+
 
 // Jalankan server
 app.listen(port, () => {
